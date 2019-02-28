@@ -1,0 +1,26 @@
+<div class="outside">
+<h1> Welcome to your restaurants! </h1>
+
+
+<div class="row">
+<% @restaurants.each do |r| %>
+  <div class="container">
+   <div class="card">
+      <h3> <%= link_to "#{r.name}" %></h3>
+      <p> <%= "#{r.category}" %></p>
+      <p> <%= "#{r.address}" %></p>
+      <p> <% r.reviews.each do |re| %>
+      <%= "#{re.content} – #{re.rating}" %>
+      <% end %> </p>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
+
+<%= link_to "Add new restaurant", new_restaurant_path, class: "btn btn-primary" %>
+
+
+
+</div>

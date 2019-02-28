@@ -1,0 +1,24 @@
+<div class="outside">
+
+  <h1> <%= @restaurant.name %> </h1>
+
+  <p> <%= "This is a #{@restaurant.category} restaurant." %> </p>
+
+  <p><%= "You can find it here: #{@restaurant.address}" %></p>
+
+  <h3> <%= "What people say about #{@restaurant.name}:" %> </h3>
+
+  <% @restaurant.reviews.each do |re| %>
+    <%= "#{re.content} – #{re.rating}" %>
+  <% end %>
+
+  <div class="card">
+
+  <%= link_to "Back to all", restaurants_path %>
+
+  <%= link_to "Edit", edit_restaurant_path %>
+
+  <%= link_to "Add new review", new_restaurant_review_path(@restaurant) %>
+
+  </div>
+</div>
